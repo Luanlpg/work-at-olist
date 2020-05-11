@@ -36,7 +36,6 @@ class AuthorResource(Resource):
         Returns a string.
         """
         item = request.get_json() if request.get_json() else request.form
-        authors = AuthorModel.list_all()
         try:
             if item:
                 model = AuthorModel()
@@ -100,7 +99,7 @@ class AuthorDetailResource(Resource):
         try:
             if item:
                 model = AuthorModel()
-                # case if integer is id
+                # case if numeric is id
                 if param.isnumeric():
                     model = AuthorModel.get_by_id(param)
                 else:
@@ -111,6 +110,7 @@ class AuthorDetailResource(Resource):
             else:
                 return 'Unedited, invalid payload', 400
         except Exception as e:
+
             return f"{e}", 500
 
     def delete(self, param):
@@ -119,7 +119,7 @@ class AuthorDetailResource(Resource):
         Returns a string.
         """
         try:
-            # case if integer is id
+            # case if numeric is id
             if param.isnumeric():
                 author = AuthorModel.get_by_id(param)
             else:

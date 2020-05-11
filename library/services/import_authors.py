@@ -13,7 +13,7 @@ class ImportAuthors:
             with open('authors.csv', 'r') as file:
                 authors = csv.DictReader(file)
 
-                item = lambda item : AuthorModel(name=(item['name'])) \
+                item = lambda item: AuthorModel(name=(item['name'])) \
                         if not AuthorModel.get_by_name(item['name']) else None
 
                 objects = []

@@ -10,19 +10,19 @@ class AuthorBookModel(db.Model):
 
     @staticmethod
     def get_by_id(id: int):
-        return AuthorModel.query.filter_by(id=id).first()
+        return AuthorBookModel.query.filter_by(id=id).first()
 
     @staticmethod
-    def get_by_author_id(author_id: int):
-        return AuthorModel.query.filter_by(author_id=author_id).first()
+    def filter_by_author_id(author_id: int):
+        return AuthorBookModel.query.filter_by(author_id=author_id).all()
 
     @staticmethod
-    def get_by_book_id(book_id: int):
-        return AuthorModel.query.filter_by(book_id=book_id).first()
+    def filter_by_book_id(book_id: int):
+        return AuthorBookModel.query.filter_by(book_id=book_id).all()
 
     @staticmethod
     def list_all():
-        return AuthorModel.query.order_by(AuthorModel.name).all()
+        return AuthorBookModel.query.order_by(AuthorBookModel.name).all()
 
     def save(self):
         db.session.merge(self)
