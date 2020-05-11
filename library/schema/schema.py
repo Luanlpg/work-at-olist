@@ -1,6 +1,7 @@
 from models import db
-#from models.author_book import AuthorBookModel
+from models.author_book import AuthorBookModel
 from models.author import AuthorModel
+from models.book import BookModel
 
 from os import environ
 

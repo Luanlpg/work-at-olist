@@ -1,15 +1,11 @@
 from models import db
 
-from sqlalchemy import Column
-from sqlalchemy import ForeignKey
-from sqlalchemy import Integer
-
 class AuthorBookModel(db.Model):
-    __tablename__ = 'author_book'
 
+    __tablename__ = 'author_book'
     id: int = db.Column(db.Integer, primary_key=True)
-    author_id = Column(Integer, ForeignKey("author.id"))
-    book_id = Column(Integer, ForeignKey("book_id.id"))
+    author_id = db.Column(db.Integer, db.ForeignKey("author.id"))
+    book_id = db.Column(db.Integer, db.ForeignKey("book.id"))
 
 
     @staticmethod
