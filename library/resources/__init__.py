@@ -6,6 +6,9 @@ from os import environ
 
 
 def initialize_resources(application):
+    """
+    Method that initializes API routes.
+    """
     api = Api(application)
 
     # Endpoints

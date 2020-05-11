@@ -1,12 +1,14 @@
 from models import db
 
 class AuthorBookModel(db.Model):
+    """
+    Model of association between author and book.
+    """
 
     __tablename__ = 'author_book'
     id: int = db.Column(db.Integer, primary_key=True)
     author_id = db.Column(db.Integer, db.ForeignKey("author.id"))
     book_id = db.Column(db.Integer, db.ForeignKey("book.id"))
-
 
     @staticmethod
     def get_by_id(id: int):

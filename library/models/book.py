@@ -1,8 +1,11 @@
 from models import db
 
 class BookModel(db.Model):
+    """
+    Book model.
+    """
+    
     __tablename__ = 'book'
-
     id: int = db.Column(db.Integer, primary_key=True)
     name: str = db.Column(db.String(70), nullable=False)
     edition: str = db.Column(db.String(50), nullable=False)

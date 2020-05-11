@@ -2,8 +2,11 @@ from models import db
 
 
 class AuthorModel(db.Model):
+    """
+    Author model.
+    """
+    
     __tablename__ = 'author'
-
     id: int = db.Column(db.Integer, primary_key=True)
     name: str = db.Column(db.String(100), nullable=False, unique=True)
 
