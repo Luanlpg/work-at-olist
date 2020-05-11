@@ -76,3 +76,6 @@
 
 ### DELETE `/api/book/<NAME or ID>`
 - Remove book (if name is used in the query string the name needs to be complete)
+
+## Cloud project link
+- `https://x-lib.herokuapp.com/`
