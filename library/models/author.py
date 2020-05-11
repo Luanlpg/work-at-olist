@@ -12,6 +12,10 @@ class AuthorModel(db.Model):
         return db.session.query(AuthorModel).filter_by(name=name).first()
 
     @staticmethod
+    def filter_by_name(name: str):
+        return db.session.query(AuthorModel).filter(AuthorModel.name.like(f'%{name}%')).all()
+
+    @staticmethod
     def get_by_id(id: int):
         return AuthorModel.query.filter_by(id=id).first()
 

@@ -13,6 +13,10 @@ class BookModel(db.Model):
         return db.session.query(BookModel).filter_by(name=name).first()
 
     @staticmethod
+    def filter_by_name(name: str):
+        return db.session.query(BookModel).filter(BookModel.name.like(f'%{name}%')).all()
+
+    @staticmethod
     def get_by_id(id: int):
         return BookModel.query.filter_by(id=id).first()
 
