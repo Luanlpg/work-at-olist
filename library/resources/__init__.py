@@ -10,8 +10,10 @@ def initialize_resources(application):
 
     # Endpoints
     from resources.author import AuthorResource
+    from resources.author import AuthorDetailResource
 
     api.add_resource(AuthorResource, '/api/author')
+    api.add_resource(AuthorDetailResource, '/api/author/<param>')
 
 class HttpCode(IntEnum):
     Ok = 200
